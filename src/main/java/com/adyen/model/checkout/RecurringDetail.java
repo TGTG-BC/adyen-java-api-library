@@ -52,6 +52,9 @@ public class RecurringDetail {
     @SerializedName("type")
     private String type = null;
 
+  @SerializedName("recurringDetailReference")
+  private String recurringDetailReference = null;
+
     public RecurringDetail configuration(Map<String, String> configuration) {
         this.configuration = configuration;
         return this;
@@ -169,6 +172,27 @@ public class RecurringDetail {
         this.storedDetails = storedDetails;
         return this;
     }
+
+
+  /**
+   * Echo data required to send in next calls.
+   *
+   * @return recurringDetailReference
+   **/
+  public String getRecurringDetailReference() {
+    return recurringDetailReference;
+  }
+
+  public void setRecurringDetailReference(String recurringDetailReference) {
+    this.recurringDetailReference = recurringDetailReference;
+  }
+
+  public RecurringDetail recurringDetailReference(String recurringDetailReference) {
+    this.recurringDetailReference = recurringDetailReference;
+    return this;
+  }
+
+
 
 
     /**

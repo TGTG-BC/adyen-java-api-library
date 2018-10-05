@@ -125,6 +125,8 @@ public class PaymentSessionRequest {
     private String telephoneNumber = null;
     @SerializedName("token")
     private String token = null;
+    @SerializedName("allowedPaymentMethods")
+    private List<String> allowedPaymentMethods = null;
 
     public PaymentSessionRequest additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
@@ -887,6 +889,19 @@ public class PaymentSessionRequest {
         this.token = token;
     }
 
+
+    public List<String> getAllowedPaymentMethods() {
+        return allowedPaymentMethods;
+    }
+
+    public void setAllowedPaymentMethods(List<String> allowedPaymentMethods) {
+        this.allowedPaymentMethods = allowedPaymentMethods;
+    }
+
+    public PaymentSessionRequest allowedPaymentMethods(List<String> allowedPaymentMethods) {
+        this.allowedPaymentMethods = allowedPaymentMethods;
+        return this;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) {
