@@ -57,8 +57,12 @@ public class PaymentResultResponse {
 
     @SerializedName("refusalReason")
     private String refusalReason = null;
+
     @SerializedName("resultCode")
     private ResultCodeEnum resultCode = null;
+
+    @SerializedName("paymentMethod")
+    private String paymentMethod = null;
 
     public PaymentResultResponse additionalData(Map<String, String> additionalData) {
         this.additionalData = additionalData;
@@ -214,6 +218,22 @@ public class PaymentResultResponse {
         this.resultCode = resultCode;
     }
 
+
+    public PaymentResultResponse paymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+        return this;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -230,12 +250,13 @@ public class PaymentResultResponse {
                 Objects.equals(this.merchantReference, paymentVerificationResponse.merchantReference) &&
                 Objects.equals(this.pspReference, paymentVerificationResponse.pspReference) &&
                 Objects.equals(this.refusalReason, paymentVerificationResponse.refusalReason) &&
-                Objects.equals(this.resultCode, paymentVerificationResponse.resultCode);
+                Objects.equals(this.resultCode, paymentVerificationResponse.resultCode) &&
+                Objects.equals(this.paymentMethod, paymentVerificationResponse.paymentMethod);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(additionalData, authResponse, errorMessage, fraudResult, merchantReference, pspReference, refusalReason, resultCode);
+        return Objects.hash(additionalData, authResponse, errorMessage, fraudResult, merchantReference, pspReference, refusalReason, resultCode, paymentMethod);
     }
 
     @Override
@@ -251,6 +272,7 @@ public class PaymentResultResponse {
         sb.append("    pspReference: ").append(toIndentedString(pspReference)).append("\n");
         sb.append("    refusalReason: ").append(toIndentedString(refusalReason)).append("\n");
         sb.append("    resultCode: ").append(toIndentedString(resultCode)).append("\n");
+        sb.append("    paymentMethod: ").append(toIndentedString(paymentMethod)).append("\n");
         sb.append("}");
         return sb.toString();
     }
